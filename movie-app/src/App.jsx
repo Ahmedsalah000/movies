@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container } from "react-bootstrap";
+import React, { useEffect, useState } from 'react'
+import NavBar from "./components/NavBar";
+import MoviesList from "./components/MoviesList";
+import MovieDetails from './components/MovieDetails'
+import axios from 'axios'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies, setMovies] = useState([])
+  const [pageCount, setpageCount] = useState(0)
+  //get all movies by axios 
+  const getAllMovies = async () => {
+    const res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=52ef927bbeb21980cd91386a29403c78&language=ar")
+    setMovies(res.data.results)
+    setpageCount(res.data.total_pages)
+  }
 
+  //get current page
+  const getPage = async (page) => {
+    const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=52ef927bbeb21980cd91386a29403c78&language=ar&page=${page}`)
+    setMovies(res.data.results)
+    setpageCount(res.data.total_pages)
+  }
+
+  useEffect(() => {
+    getAllMovies();
+  }, [])
+
+  //to search in api
+  const search = async (word) => {
+    if (word === "") {
+      getAllMovies();
+    } else {
+      const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=52ef927bbeb21980cd91386a29403c78&query=${word}&language=ar`)
+      setMovies(res.data.results)
+      setpageCount(res.data.total_pages)
+    }
+  }
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="font color-body ">
+      <NavBar search={search} />
+      <Container>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MoviesList movies={movies} getPage={getPage} pageCount={pageCount} />} />
+
+            <Route path="/movie/:id" element={<MovieDetails />} />
+
+          </Routes>
+        </BrowserRouter>
+      </Container>
+    </div>
+  );
 }
 
-export default App
+export default App;
