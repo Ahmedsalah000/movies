@@ -12,7 +12,7 @@ const PaginationComponent = ({ getPage ,pageCount}) => {
             breakLabel="..."
             nextLabel="التالى"
             onPageChange={handlePageClick}
-            marginPagesDisplayed={2}
+            marginPagesDisplayed={3}
             pageRangeDisplayed={2}
             pageCount={pageCount}
             previousLabel="السابق"

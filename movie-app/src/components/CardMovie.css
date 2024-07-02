@@ -1,0 +1,31 @@
+.card-movie {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    margin: 16px;
+    max-width: 300px;
+  }
+  
+  .card-movie:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-movie img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-movie .details {
+    padding: 16px;
+  }
+  
+  .card-movie .details h2 {
+    margin: 0 0 8px;
+  }
+  
+  .card-movie .details p {
+    margin: 0;
+    color: #666;
+  }
+  
