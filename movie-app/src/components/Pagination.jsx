@@ -22,12 +22,12 @@ const PaginationComponent = () => {
         <div className="d-flex justify-content-center p-3">
             <ReactPaginate
                 breakLabel="..."
-                nextLabel="التالى"
+                nextLabel="Next"
                 onPageChange={handlePageClick}
                 marginPagesDisplayed={3}
                 pageRangeDisplayed={2}
-                pageCount={pageCount || 500}
-                previousLabel="السابق"
+                pageCount={500}
+                previousLabel="previous"
                 containerClassName={"pagination justify-content-center"}
                 pageClassName={"page-item"}
                 pageLinkClassName={"page-link"}
