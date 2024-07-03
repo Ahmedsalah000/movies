@@ -1,31 +1,53 @@
-.card-movie {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.3s;
-    margin: 16px;
-    max-width: 300px;
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card:hover .card__overlay {
+  opacity: 1;
+}
+
+.overlay__text {
+  padding: 10px;
+}
+
+.overlay__text p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 20px;
   }
-  
-  .card-movie:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-movie img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .card-movie .details {
-    padding: 16px;
-  }
-  
-  .card-movie .details h2 {
-    margin: 0 0 8px;
-  }
-  
-  .card-movie .details p {
-    margin: 0;
-    color: #666;
-  }
-  
+}

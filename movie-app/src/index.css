@@ -1,40 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 body {
-  margin: 0;
+	font-family: 'Montserrat', sans-serif;
+
 }
+
+
+
 .color-body {
-  background-color: white;
-  height: 100vh;
-}
-.nav-style {
-  height: 90px;
-  width: 1440px;
-  background-color: #b45b35;
+	background: #1d1d1d;
+	color: #fff;
+
 }
 
-.logo {
-  height: 72px;
-  width: 78px;
-}
 
-.search {
-  position: relative;
-}
-
-.search input {
-  height: 40px;
-  text-indent: 25px;
-  border-radius: 20px;
-}
-
-.search input:focus {
-  box-shadow: none;
-  border: 2px solid red;
-}
-.search .fa-search {
-  position: absolute;
-  top: 12px;
-  left: 16px;
-}
 
 .card {
   position: relative;

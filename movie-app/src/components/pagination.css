@@ -1,0 +1,41 @@
+/* Pagination container */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Individual page item */
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  /* Page link */
+  .page-link {
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid #0ff;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #0ff;
+  }
+  
+  /* Previous and Next buttons */
+  .page-item.previous .page-link,
+  .page-item.next .page-link {
+    font-weight: bold;
+  }
+  
+  /* Active page */
+  .active .page-link {
+    background-color: #0ff;
+    color: white;
+    border: 1px solid #7ff;
+  }
+  
+  /* Break link (ellipsis) */
+  .break-me .page-link {
+    cursor: default;
+    color: #6c7d;
+  }
+  

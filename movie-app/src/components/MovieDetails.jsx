@@ -65,7 +65,7 @@ const MovieDetails = () => {
                 <Col md="10" xs="12" sm="12" className="mt-2 d-flex justify-content-center">
                     <Link to="/">
                         <button
-                            style={{ backgroundColor: "#b45b35", border: "none" }}
+                            style={{ backgroundColor: "#137c32", border: "none" }}
                             className="btn btn-primary mx-2">
                             عوده للرئيسيه
                         </button>
@@ -73,7 +73,7 @@ const MovieDetails = () => {
                     
                         <a href={movie.homepage}>
                             <button
-                                style={{ backgroundColor: "#b45b35", border: "none" }}
+                                style={{ backgroundColor: "#137c32", border: "none" }}
                                 className="btn btn-primary">
                                 مشاهده الفيلم
                             </button>

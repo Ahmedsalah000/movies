@@ -1,0 +1,45 @@
+.nav-style {
+  background-color: #2c3e50;
+  padding: 10px 0;
+}
+
+.nav-style .logo {
+  width: 100%;
+  max-width: 50px; /* Adjust the size of the logo */
+  transition: transform 0.3s;
+}
+
+.nav-style .logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-style .search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-style .fa-search {
+  position: absolute;
+  left: 10px;
+  color: #7f8c8d;
+}
+
+.nav-style .form-control {
+  padding-left: 35px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+}
+
+.nav-style .form-control:focus {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+@media (max-width: 576px) {
+  .nav-style .form-control {
+    width: 100%;
+  }
+}

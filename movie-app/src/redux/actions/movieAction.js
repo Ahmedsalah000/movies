@@ -1,15 +1,11 @@
 import { AllMOVIES, MovieApi } from '../types/moviesType'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
-
-
-
-export const getAllMovie = () => {
+export const getAllMovies = () => {
     return async (dispatch) => {
         const res = await axios.get(MovieApi)
         dispatch({ type: AllMOVIES, data: res.data.results, pages: res.data.total_pages })
 
-    }
+    } // send data to  reducer to update state
 }
 
 export const getMovieSearch = (word) => {
