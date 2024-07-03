@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -23,10 +23,10 @@ const MovieDetails = () => {
     return (
         <div>
             <Row className="justify-content-center">
-                <Col md="12" xs="12" sm="12" className="mt-4">
-                    <div className="card-details d-flex align-items-center">
+                <Col lg="6" md="8" sm="10" xs="12" className="mt-4">
+                    <div className="card-details d-flex align-items-center flex-column flex-md-row">
                         <img
-                            className="img-movie w-30"
+                            className="img-movie w-100 w-md-30 mb-3 mb-md-0"
                             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                             alt={movie.title}
                         />
@@ -49,7 +49,7 @@ const MovieDetails = () => {
             </Row>
 
             <Row className="justify-content-center">
-                <Col md="12" xs="12" sm="12" className="mt-1">
+                <Col lg="8" md="10" sm="12" xs="12" className="mt-1">
                     <div className="card-story d-flex flex-column align-items-start">
                         <div className="text-end p-4">
                             <p className="card-text-title border-bottom">القصة:</p>
@@ -62,23 +62,23 @@ const MovieDetails = () => {
             </Row>
 
             <Row className="justify-content-center">
-                <Col md="10" xs="12" sm="12" className="mt-2 d-flex justify-content-center">
+                <Col lg="6" md="8" sm="10" xs="12" className="mt-2 d-flex justify-content-around">
                     <Link to="/">
-                        <button
+                        <Button
                             style={{ backgroundColor: "#137c32", border: "none" }}
-                            className="btn btn-primary mx-2">
+                            className="mx-2">
                             عوده للرئيسيه
-                        </button>
+                        </Button>
                     </Link>
-                    
+                    {movie.homepage && (
                         <a href={movie.homepage}>
-                            <button
+                            <Button
                                 style={{ backgroundColor: "#137c32", border: "none" }}
-                                className="btn btn-primary">
+                                className="mx-2">
                                 مشاهده الفيلم
-                            </button>
+                            </Button>
                         </a>
- 
+                    )}
                 </Col>
             </Row>
         </div>
